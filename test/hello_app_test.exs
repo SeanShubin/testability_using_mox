@@ -12,7 +12,7 @@ defmodule HelloAppTest do
       :ok
     end)
     |> expect(:puts, 1, fn string ->
-      assert string == "Took 123 microseconds"
+      assert string == "Took 234 microseconds"
       :ok
     end)
 
@@ -25,7 +25,7 @@ defmodule HelloAppTest do
     SystemProxy.Mock
     |> expect(:argv, 1, fn -> ["greeting-target.txt"] end)
     |> expect(:monotonic_time, 1, fn _unit -> 1000 end)
-    |> expect(:monotonic_time, 1, fn _unit -> 1123 end)
+    |> expect(:monotonic_time, 1, fn _unit -> 1234 end)
 
     HelloApp.main()
   end
