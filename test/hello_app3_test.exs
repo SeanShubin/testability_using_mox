@@ -1,4 +1,4 @@
-defmodule HelloAppTest do
+defmodule HelloApp3Test do
   use ExUnit.Case, async: true
 
   import Mox
