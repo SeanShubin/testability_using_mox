@@ -6,9 +6,9 @@ defmodule HelloAppTest do
   setup :verify_on_exit!
 
   test "say hello to world" do
-    Process.put( :io_backend, IOProxy.Mock)
-    Process.put( :file_backend, FileProxy.Mock)
-    Process.put( :system_backend, SystemProxy.Mock)
+    Process.put(:io_backend, IOProxy.Mock)
+    Process.put(:file_backend, FileProxy.Mock)
+    Process.put(:system_backend, SystemProxy.Mock)
 
     IOProxy.Mock
     |> expect(:puts, 1, fn string ->
