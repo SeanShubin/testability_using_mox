@@ -10,5 +10,5 @@ defmodule SystemProxy do
     backend().argv
   end
 
-  defp backend, do: Process.get(:system_backend) || SystemNative
+  defp backend, do: Process.get(:system_backend) || System
 end

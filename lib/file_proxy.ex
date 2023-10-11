@@ -5,5 +5,5 @@ defmodule FileProxy do
     backend().read!(path)
   end
 
-  defp backend, do: Process.get(:file_backend) || FileNative
+  defp backend, do: Process.get(:file_backend) || File
 end

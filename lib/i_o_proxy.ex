@@ -5,5 +5,5 @@ defmodule IOProxy do
     backend().puts(item)
   end
 
-  defp backend, do: Process.get(:io_backend) || IONative
+  defp backend, do: Process.get(:io_backend) || IO
 end
