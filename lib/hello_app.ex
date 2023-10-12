@@ -1,11 +1,12 @@
+
 defmodule HelloApp do
   def main do
     time_unit = :microsecond
-    microseconds_before = SystemProxy.monotonic_time time_unit
-    target = SystemProxy.argv |> List.first |> FileProxy.read!
-    IOProxy.puts "Hello, #{target}!"
-    microseconds_after = SystemProxy.monotonic_time time_unit
+    microseconds_before = Proxy.System.monotonic_time time_unit
+    target = Proxy.System.argv |> List.first |> Proxy.File.read!
+    Proxy.IO.puts "Hello, #{target}!"
+    microseconds_after = Proxy.System.monotonic_time time_unit
     microseconds_duration = microseconds_after - microseconds_before
-    IOProxy.puts "Took #{microseconds_duration} microseconds"
+    Proxy.IO.puts "Took #{microseconds_duration} microseconds"
   end
 end

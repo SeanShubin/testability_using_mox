@@ -6,11 +6,11 @@ defmodule HelloAppTest do
   setup :verify_on_exit!
 
   test "say hello to world" do
-    Process.put(:io_backend, IOProxy.Mock)
-    Process.put(:file_backend, FileProxy.Mock)
-    Process.put(:system_backend, SystemProxy.Mock)
+    Process.put(:io_backend, Proxy.IO.Mock)
+    Process.put(:file_backend, Proxy.File.Mock)
+    Process.put(:system_backend, Proxy.System.Mock)
 
-    IOProxy.Mock
+    Proxy.IO.Mock
     |> expect(:puts, 1, fn string ->
       assert string == "Hello, world!"
       :ok
@@ -20,13 +20,13 @@ defmodule HelloAppTest do
       :ok
     end)
 
-    FileProxy.Mock
+    Proxy.File.Mock
     |> expect(:read!, 1, fn path ->
       assert path == "greeting-target.txt"
       "world"
     end)
 
-    SystemProxy.Mock
+    Proxy.System.Mock
     |> expect(:argv, 1, fn -> ["greeting-target.txt"] end)
     |> expect(:monotonic_time, 1, fn _unit -> 1000 end)
     |> expect(:monotonic_time, 1, fn _unit -> 1234 end)

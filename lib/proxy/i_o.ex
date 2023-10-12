@@ -1,4 +1,4 @@
-defmodule IOProxy do
+defmodule Proxy.IO do
   @callback puts(IO.chardata() | String.Chars.t()) :: :ok
 
   def puts(item) do

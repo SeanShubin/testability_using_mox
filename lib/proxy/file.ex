@@ -1,4 +1,4 @@
-defmodule FileProxy do
+defmodule Proxy.File do
   @callback read!(Path.t()) :: binary()
 
   def read!(path) do

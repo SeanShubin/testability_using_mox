@@ -1,4 +1,4 @@
-defmodule SystemProxy do
+defmodule Proxy.System do
   @callback monotonic_time(System.time_unit()) :: integer()
   @callback argv() :: [String.t()]
 
